@@ -6,22 +6,26 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts\{
     AuthRepositoryInterface,
     PermissionRepositoryInterface,
+    ProfileRepositoryInterface,
 };
 use App\Repositories\{
     AuthRepository, 
-    PermissionRepository, 
+    PermissionRepository,
+    ProfileRepository,
 };
 
 use App\Observers\{
     TenantObserver,
     UserObserver,
     PermissionObserver,
+    ProfileObserver,
 };
 
 use App\Models\{
     Tenant,
     User,  
     Permission,
+    Profile,
 };
 
 class AppServiceProvider extends ServiceProvider
@@ -41,6 +45,10 @@ class AppServiceProvider extends ServiceProvider
             PermissionRepositoryInterface::class,
             PermissionRepository::class,
         );
+        $this->app->bind(
+            ProfileRepositoryInterface::class,
+            ProfileRepository::class,
+        );
     }
 
     /**
@@ -53,5 +61,6 @@ class AppServiceProvider extends ServiceProvider
         Tenant::observe(TenantObserver::class);
         User::observe(UserObserver::class);
         Permission::observe(PermissionObserver::class);
+        Profile::observe(ProfileObserver::class);
     }
 }

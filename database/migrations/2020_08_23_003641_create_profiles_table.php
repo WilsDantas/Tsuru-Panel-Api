@@ -15,6 +15,13 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->uuid('uuid');
+            $table->unsignedBigInteger('tenant_id');
+            $table->foreign('tenant_id')
+                    ->references('id')
+                    ->on('tenants')
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -34,7 +34,7 @@ class permissionController extends Controller
         return PermissionResource::collection($permissions); 
     }
     
-    public function store(Request $request)
+    public function store(PermissionRequest $request)
     {
         if(!$permission = $this->permissionService->store($request)){
             return response()->json(['message' => 'it was not possible to register the permission'], 404); 
@@ -50,7 +50,7 @@ class permissionController extends Controller
         return new PermissionResource($permission);   
     }
 
-    public function update(Request $request, $uuid)
+    public function update(PermissionRequest $request, $uuid)
     {
         if(!$permission = $this->permissionService->update($request, $uuid)){
             return response()->json(['message' => 'failed to update permission'], 404); 

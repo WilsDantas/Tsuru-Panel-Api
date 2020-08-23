@@ -71,3 +71,36 @@ api/v1/permissions/{$uuid} - PUT
 api/v1/permissions/{$uuid} - DELETE
 
     return message " permission successfully deleted "
+
+## LARAVEL API URLS PROFILES - ALL NEED AUTHENTICATION
+
+api/v1/profiles/paginate - GET
+
+    per_page                - number
+    search                  - string
+
+    Return Profiles With Paginate
+
+api/v1/profiles - GET
+
+    Return All Profiles Without Paginate
+
+api/v1/profiles - POST
+
+    name                    - Profile Name
+
+    return message " Profile successfully registered "
+
+api/v1/profiles/{$uuid} - GET
+
+    Return One Profile
+
+api/v1/profiles/{$uuid} - PUT
+
+    name                    - Profile Name
+
+    return message " Profile updated successfully "
+
+api/v1/profiles/{$uuid} - DELETE
+
+    return message " Profile successfully deleted "
