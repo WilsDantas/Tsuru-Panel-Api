@@ -4,7 +4,7 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class orders extends Model
+class permission extends Model
 {
-    //
+    protected $fillable = ['name'];
 }

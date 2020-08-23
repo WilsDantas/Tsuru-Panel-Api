@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\TenantRequest;
 
-class permissionController extends Controller
+class tenantController extends Controller
 {
+
     public function index()
     {
         //
     }
     
-    public function store(Request $request)
+    public function store(TenantRequest $request)
     {
         //
     }

@@ -15,12 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('register', 'Api\AuthController@register');
-Route::get('auth', 'Api\AuthController@auth');
+Route::post('v1/register', 'Api\v1\AuthController@register');
+Route::get('v1/auth', 'Api\v1\AuthController@auth');
 
 Route::group([
+    'prefix' => 'v1',
+    'namespace' => 'Api\v1',
     'middleware' => ['auth:sanctum']
 ], function (){
-    Route::get('me', 'Api\AuthController@me');
-    Route::get('logout', 'Api\AuthController@logout');
+
+    //Auth
+    Route::get('me', 'AuthController@me');
+    Route::get('logout', 'AuthController@logout');
+
+    // Permissions
+    Route::get('permissions/paginate/{per_page?}/{search?}', 'PermissionController@paginate');
+    Route::resource('permissions', 'PermissionController')->except(['edit', 'create']);
 });

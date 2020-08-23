@@ -6,9 +6,9 @@ Api for the Tsuru panel that will be done in Vue Js
 
 ## LARAVEL SANCTUM 
 
-## LARAVEL API URLS
+## LARAVEL API URLS AUTH
 
-api/register - POST
+api/v1/register - POST
 
     CNPJ                    - 14 Digits
     Tenant                  - Name Tenant
@@ -17,19 +17,57 @@ api/register - POST
     password                - User Password
     password_confirmation   - Confirm User Password
 
-
-api/auth - GET
+api/v1/auth - GET
 
     Email                   - User Email
     password                - User Password
     device_name             - current device name
 
-api\me - GET
+    Return Sanctum Token +  User Resource with Tenant Resource
+
+api/v1/me - GET
 
     Sanctum Token
     Authenticated
 
-api\logout - GET
+    Return User Resource with Tenant Resource
+
+api/v1/logout - GET
 
     Sanctum Token
     Authenticated
+
+    Revoke all User Tokens
+
+## LARAVEL API URLS PERMISSIONS - ALL NEED AUTHENTICATION
+
+api/v1/permissions/paginate - GET
+
+    per_page                - number
+    search                  - string
+
+    Return Permissions With Paginate
+
+api/v1/permissions - GET
+
+    Return All Permissions Without Paginate
+
+api/v1/permissions - POST
+
+    name                    - Permission Name
+
+    return message " permission successfully registered "
+
+api/v1/permissions/{$uuid} - GET
+
+    Return One Permission
+
+api/v1/permissions/{$uuid} - PUT
+
+    name                    - Permission Name
+
+    return message " permission updated successfully "
+
+api/v1/permissions/{$uuid} - DELETE
+
+    return message " permission successfully deleted "

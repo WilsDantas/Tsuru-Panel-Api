@@ -5,19 +5,23 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts\{
     AuthRepositoryInterface,
+    PermissionRepositoryInterface,
 };
 use App\Repositories\{
-    AuthRepository,  
+    AuthRepository, 
+    PermissionRepository, 
 };
 
 use App\Observers\{
     TenantObserver,
     UserObserver,
+    PermissionObserver,
 };
 
 use App\Models\{
     Tenant,
-    User,   
+    User,  
+    Permission,
 };
 
 class AppServiceProvider extends ServiceProvider
@@ -33,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
             AuthRepositoryInterface::class,
             AuthRepository::class,
         );
+        $this->app->bind(
+            PermissionRepositoryInterface::class,
+            PermissionRepository::class,
+        );
     }
 
     /**
@@ -44,5 +52,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Tenant::observe(TenantObserver::class);
         User::observe(UserObserver::class);
+        Permission::observe(PermissionObserver::class);
     }
 }

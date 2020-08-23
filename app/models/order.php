@@ -4,7 +4,7 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class permissions extends Model
+class order extends Model
 {
     //
 }
