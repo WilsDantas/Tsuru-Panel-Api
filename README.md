@@ -2,9 +2,39 @@
 
 Api for the Tsuru panel that will be done in Vue Js
 
-## Laravel - ACL + MULTI TENANT SINGLE DATABASE
+## Laravel - ACL - Access Control List
+
+is a list of permissions associated with a user.
+An ACL specifies which users are granted access to system processes,
+as well as which operations are allowed on certain objects.
+
+
+## LARAVEL - MULTI TENANT SINGLE DATABASE
+
+System with multiple companies, all in the same application, in the same database.
+Separating data by companies where your employees will only be able to see your company data.
 
 ## LARAVEL SANCTUM 
+
+Laravel Sanctum provides a featherweight authentication system for SPAs (single page applications), mobile applications, and simple, token based APIs. Sanctum allows each user of your application to generate multiple API tokens for their account. These tokens may be granted abilities / scopes which specify which actions the tokens are allowed to perform.
+
+# CLONING REPOSITORY
+
+git clone https://github.com/WilsDantas/Tsuru-Panel-Api.git
+
+# Install the dependencies and the framework
+
+composer install
+
+# create a .env with the data from .env.example
+
+# create a new key for your application
+
+php artisan key:generate
+
+# run migrations
+
+php artisan migrate --seed
 
 ## LARAVEL API URLS AUTH
 
