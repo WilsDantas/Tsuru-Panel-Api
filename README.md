@@ -2,6 +2,17 @@
 
 Api for the Tsuru panel that will be done in Vue Js
 
+- Clients
+- Categories
+- Brands
+- Tenants
+    - Products
+    - Orders
+    - Users
+        - Profiles
+            - Permissions
+    
+
 ## Laravel - ACL - Access Control List
 
 is a list of permissions associated with a user.
@@ -173,3 +184,36 @@ api/v1/categories/{identify} - PUT
 api/v1/categories/{identify} - DELETE
 
     return message " Category successfully deleted "
+
+## LARAVEL API URLS BRANDS - ALL NEED AUTHENTICATION
+
+api/v1/brands/paginate - GET
+
+    per_page                - number
+    search                  - string
+
+    Return Brands
+
+api/v1/brands - GET
+
+    Return All Brands Without Paginate
+
+api/v1/brands - POST
+
+    name                    - Brand Name
+
+    return message " Brand successfully registered "
+
+api/v1/brands/{identify} - GET
+
+    Return One Brand
+
+api/v1/brands/{identify} - PUT
+
+    name                    - Brand Name
+
+    return message " Brand updated successfully "
+
+api/v1/brands/{identify} - DELETE
+
+    return message " Brand successfully deleted "

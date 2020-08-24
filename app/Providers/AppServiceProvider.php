@@ -9,6 +9,7 @@ use App\Repositories\Contracts\{
     ProfileRepositoryInterface,
     PermissionProfileRepositoryInterface,
     CategoryRepositoryInterface,
+    BrandRepositoryInterface,
 };
 
 use App\Repositories\{
@@ -17,6 +18,7 @@ use App\Repositories\{
     ProfileRepository,
     PermissionProfileRepository,
     CategoryRepository,
+    BrandRepository,
 };
 
 use App\Observers\{
@@ -25,6 +27,7 @@ use App\Observers\{
     PermissionObserver,
     ProfileObserver,
     CategoryObserver,
+    BrandObserver,
 };
 
 use App\Models\{
@@ -32,7 +35,8 @@ use App\Models\{
     User,  
     Permission,
     Profile,
-    Category
+    Category,
+    Brand
 };
 
 class AppServiceProvider extends ServiceProvider
@@ -64,6 +68,10 @@ class AppServiceProvider extends ServiceProvider
             CategoryRepositoryInterface::class,
             CategoryRepository::class,
         );
+        $this->app->bind(
+            BrandRepositoryInterface::class,
+            BrandRepository::class,
+        );
     }
 
     /**
@@ -78,5 +86,6 @@ class AppServiceProvider extends ServiceProvider
         Permission::observe(PermissionObserver::class);
         Profile::observe(ProfileObserver::class);
         Category::observe(CategoryObserver::class);
+        Brand::observe(BrandObserver::class);
     }
 }
