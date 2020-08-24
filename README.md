@@ -1,12 +1,14 @@
 ## Tsuru - Panel - Api
 
-Api for the Tsuru panel that will be done in Vue Js
+Api being made in Laravel for an e-commerce that will be done in Vue Js
 
 - Clients
 - Categories
+    - Sub Categories
 - Brands
 - Tenants
     - Products
+        - Details
     - Orders
     - Users
         - Profiles
@@ -51,18 +53,18 @@ php artisan migrate --seed
 
 api/v1/register - POST
 
-    CNPJ                    - 14 Digits
-    Tenant                  - Name Tenant
-    name                    - User Name
-    Email                   - User/Tenant Email
-    password                - User Password
+    CNPJ                    - Tenant CNPJ | Required | 14 Digits | Unique: Tenant
+    Tenant                  - Name Tenant | Required | Min: 3 | Max: 255
+    name                    - User Name | Required | Min: 3 | Max: 255
+    Email                   - User/Tenant Email | Required | Email | Min: 3 | Max: 255 | Unique: Users
+    password                - User Password | Password | Min: 6 | Max: 20
     password_confirmation   - Confirm User Password
 
 api/v1/auth - GET
 
-    Email                   - User Email
-    password                - User Password
-    device_name             - current device name
+    Email                   - User Email | Required
+    password                - User Password | Required
+    device_name             - current device name | Required
 
     Return Sanctum Token +  User Resource with Tenant Resource
 
@@ -82,10 +84,10 @@ api/v1/logout - GET - NEED AUTHENTICATION
 
 ## LARAVEL API URLS PERMISSIONS - ALL NEED AUTHENTICATION
 
-api/v1/permissions/paginate - GET
+api/v1/permissions/paginate/{per_page}/{search} - GET
 
-    per_page                - number
-    search                  - string
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
 
     Return Permissions With Paginate
 
@@ -95,17 +97,19 @@ api/v1/permissions - GET
 
 api/v1/permissions - POST
 
-    name                    - Permission Name
+    name                    - Required | Min: 3 | Max: 255
 
     return message " permission successfully registered "
 
 api/v1/permissions/{identify} - GET
 
+    identify                - Permission Identify
+
     Return One Permission
 
 api/v1/permissions/{identify} - PUT
 
-    name                    - Permission Name
+    name                    - Required | Min: 3 | Max: 255
 
     return message " permission updated successfully "
 
@@ -117,8 +121,8 @@ api/v1/permissions/{identify} - DELETE
 
 api/v1/profiles/paginate - GET
 
-    per_page                - number
-    search                  - string
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
 
     Return Profiles With Paginate
 
@@ -128,21 +132,27 @@ api/v1/profiles - GET
 
 api/v1/profiles - POST
 
-    name                    - Profile Name
+    name                    - Required | Min: 3 | Max: 255
 
     return message " Profile successfully registered "
 
 api/v1/profiles/{identify} - GET
 
+    identify                - Permission Identify
+
     Return One Profile
 
 api/v1/profiles/{identify} - PUT
 
-    name                    - Profile Name
+    identify                - Permission Identify
+
+    name                    - Required | Min: 3 | Max: 255
 
     return message " Profile updated successfully "
 
 api/v1/profiles/{identify} - DELETE
+
+    identify                - Permission Identify
 
     return message " Profile successfully deleted "
 
@@ -156,10 +166,10 @@ api/v1/profiles/AttachPermissions/{identify} - PUT
 
 api/v1/categories/paginate - GET
 
-    per_page                - number
-    search                  - string
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
 
-    Return Categories
+    Return Categories With Paginate
 
 api/v1/categories - GET
 
@@ -167,7 +177,7 @@ api/v1/categories - GET
 
 api/v1/categories - POST
 
-    name                    - Category Name
+    name                    - Required | Min: 3 | Max: 255
 
     return message " Category successfully registered "
 
@@ -177,11 +187,15 @@ api/v1/categories/{identify} - GET
 
 api/v1/categories/{identify} - PUT
 
-    name                    - Category Name
+    identify                - Category Identify
+
+    name                    - Required | Min: 3 | Max: 255
 
     return message " Category updated successfully "
 
 api/v1/categories/{identify} - DELETE
+
+    identify                - Permission Identify
 
     return message " Category successfully deleted "
 
@@ -189,10 +203,10 @@ api/v1/categories/{identify} - DELETE
 
 api/v1/brands/paginate - GET
 
-    per_page                - number
-    search                  - string
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
 
-    Return Brands
+    Return Brands With Paginate
 
 api/v1/brands - GET
 
@@ -200,20 +214,26 @@ api/v1/brands - GET
 
 api/v1/brands - POST
 
-    name                    - Brand Name
+    name                    - Required | Min: 3 | Max: 255
 
     return message " Brand successfully registered "
 
 api/v1/brands/{identify} - GET
 
+    identify                - Brand Identify
+
     Return One Brand
 
 api/v1/brands/{identify} - PUT
 
-    name                    - Brand Name
+    identify                - Brand Identify
+
+    name                    - Required | Min: 3 | Max: 255
 
     return message " Brand updated successfully "
 
 api/v1/brands/{identify} - DELETE
+
+    identify                - Brand Identify
 
     return message " Brand successfully deleted "
