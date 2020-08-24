@@ -6,7 +6,7 @@ use App\Repositories\Contracts\permissionProfileRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Profile;
 
-class permissionProfileRepository implements permissionProfileRepositoryInterface
+class PermissionProfileRepository implements permissionProfileRepositoryInterface
 {
     protected $repository;
 

@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface permissionProfileRepositoryInterface
+interface PermissionProfileRepositoryInterface
 {
     public function AttachPermissions($uuid, $request);
 }

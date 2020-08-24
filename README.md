@@ -135,10 +135,41 @@ api/v1/profiles/{identify} - DELETE
 
     return message " Profile successfully deleted "
 
-## LARAVEL API URLS PermissionProfile - ALL NEED AUTHENTICATION
-
 api/v1/profiles/AttachPermissions/{identify} - PUT
 
     permissions                - array with all permission IDs you need to add to the profile
 
     Return Profile with Permissions
+
+## LARAVEL API URLS CATEGORIES - ALL NEED AUTHENTICATION
+
+api/v1/categories/paginate - GET
+
+    per_page                - number
+    search                  - string
+
+    Return Categories
+
+api/v1/categories - GET
+
+    Return All Categories Without Paginate
+
+api/v1/categories - POST
+
+    name                    - Category Name
+
+    return message " Category successfully registered "
+
+api/v1/categories/{identify} - GET
+
+    Return One Category
+
+api/v1/categories/{identify} - PUT
+
+    name                    - Category Name
+
+    return message " Category updated successfully "
+
+api/v1/categories/{identify} - DELETE
+
+    return message " Category successfully deleted "

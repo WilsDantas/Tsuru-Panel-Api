@@ -35,6 +35,9 @@ Route::group([
     // Profiles
     Route::get('profiles/paginate/{per_page?}/{search?}', 'ProfileController@paginate');
     Route::resource('profiles', 'ProfileController')->except(['edit', 'create']);
-
     Route::put('profiles/AttachPermissions/{identify}', 'PermissionProfileController@AttachPermissions');
+
+    // Categories
+    Route::get('categories/paginate/{per_page?}/{search?}', 'CategoryController@paginate');
+    Route::resource('categories', 'CategoryController')->except(['edit', 'create']);
 });
