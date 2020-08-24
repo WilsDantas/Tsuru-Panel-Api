@@ -45,7 +45,7 @@ class permissionController extends Controller
     public function show($uuid)
     {
         if(!$permission = $this->permissionService->show($uuid)){
-            return response()->json(['message' => 'permission not found'], 404); 
+            return response()->json(['message' => 'the permissions could not be found'], 404); 
         }
         return new PermissionResource($permission);   
     }

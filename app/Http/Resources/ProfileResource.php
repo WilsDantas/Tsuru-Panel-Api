@@ -11,6 +11,7 @@ class ProfileResource extends JsonResource
         return [
             'identify'      => $this->uuid,
             'name'          => $this->name,
+            'permissions'   => PermissionResource::collection($this->permissions),
         ];
     }
 }

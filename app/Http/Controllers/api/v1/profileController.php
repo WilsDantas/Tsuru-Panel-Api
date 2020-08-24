@@ -46,7 +46,7 @@ class profileController extends Controller
     public function show($uuid)
     {
         if(!$profile = $this->profileService->show($uuid)){
-            return response()->json(['message' => 'profile not found'], 404); 
+            return response()->json(['message' => 'the profiles could not be found'], 404); 
         }
         return new ProfileResource($profile);   
     }

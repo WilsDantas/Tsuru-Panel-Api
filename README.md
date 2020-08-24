@@ -55,14 +55,14 @@ api/v1/auth - GET
 
     Return Sanctum Token +  User Resource with Tenant Resource
 
-api/v1/me - GET
+api/v1/me - GET - NEED AUTHENTICATION
 
     Sanctum Token
     Authenticated
 
     Return User Resource with Tenant Resource
 
-api/v1/logout - GET
+api/v1/logout - GET - NEED AUTHENTICATION
 
     Sanctum Token
     Authenticated
@@ -88,17 +88,17 @@ api/v1/permissions - POST
 
     return message " permission successfully registered "
 
-api/v1/permissions/{$uuid} - GET
+api/v1/permissions/{identify} - GET
 
     Return One Permission
 
-api/v1/permissions/{$uuid} - PUT
+api/v1/permissions/{identify} - PUT
 
     name                    - Permission Name
 
     return message " permission updated successfully "
 
-api/v1/permissions/{$uuid} - DELETE
+api/v1/permissions/{identify} - DELETE
 
     return message " permission successfully deleted "
 
@@ -121,16 +121,24 @@ api/v1/profiles - POST
 
     return message " Profile successfully registered "
 
-api/v1/profiles/{$uuid} - GET
+api/v1/profiles/{identify} - GET
 
     Return One Profile
 
-api/v1/profiles/{$uuid} - PUT
+api/v1/profiles/{identify} - PUT
 
     name                    - Profile Name
 
     return message " Profile updated successfully "
 
-api/v1/profiles/{$uuid} - DELETE
+api/v1/profiles/{identify} - DELETE
 
     return message " Profile successfully deleted "
+
+## LARAVEL API URLS PermissionProfile - ALL NEED AUTHENTICATION
+
+api/v1/profiles/AttachPermissions/{identify} - PUT
+
+    permissions                - array with all permission IDs you need to add to the profile
+
+    Return Profile with Permissions

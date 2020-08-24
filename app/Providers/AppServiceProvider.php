@@ -7,11 +7,13 @@ use App\Repositories\Contracts\{
     AuthRepositoryInterface,
     PermissionRepositoryInterface,
     ProfileRepositoryInterface,
+    permissionProfileRepositoryInterface,
 };
 use App\Repositories\{
     AuthRepository, 
     PermissionRepository,
     ProfileRepository,
+    permissionProfileRepository,
 };
 
 use App\Observers\{
@@ -48,6 +50,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ProfileRepositoryInterface::class,
             ProfileRepository::class,
+        );
+        $this->app->bind(
+            permissionProfileRepositoryInterface::class,
+            permissionProfileRepository::class,
         );
     }
 
