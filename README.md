@@ -195,9 +195,48 @@ api/v1/categories/{identify} - PUT
 
 api/v1/categories/{identify} - DELETE
 
-    identify                - Permission Identify
+    identify                - Category Identify
 
     return message " Category successfully deleted "
+
+## LARAVEL API URLS SUB CATEGORIES - ALL NEED AUTHENTICATION
+
+api/v1/subcategories/paginate - GET
+
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
+
+    Return Sub Categories With Paginate
+
+api/v1/subcategories - GET
+
+    Return All Sub Categories Without Paginate
+
+api/v1/subcategories - POST
+
+    category                - Required                      Category Identify
+    name                    - Required | Min: 3 | Max: 255
+
+    return message " Sub Category successfully registered "
+
+api/v1/subcategories/{identify} - GET
+
+    Return One Category
+
+api/v1/subcategories/{identify} - PUT
+
+    identify                - Category Identify
+
+    category                - Required                      Category Identify
+    name                    - Required | Min: 3 | Max: 255
+
+    return message " Sub Category updated successfully "
+
+api/v1/subcategories/{identify} - DELETE
+
+    identify                - Sub Category Identify
+
+    return message " Sub Category successfully deleted "
 
 ## LARAVEL API URLS BRANDS - ALL NEED AUTHENTICATION
 
