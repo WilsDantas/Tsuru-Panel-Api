@@ -79,9 +79,9 @@ class ProductRepository implements ProductRepositoryInterface
             $data['sub_category_id'] = $subCategory->id;
             $data['brand_id'] = $brand->id;
 
-            $product->detail()->update($request->all());
-            
             $product->product_images()->delete();
+            $product->detail->update($request->all());
+
             $product = $product->update($data); 
             
             foreach($request->images as $image){

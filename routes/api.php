@@ -41,6 +41,10 @@ Route::group([
     Route::get('categories/paginate/{per_page?}/{search?}', 'CategoryController@paginate');
     Route::resource('categories', 'CategoryController')->except(['edit', 'create']);
 
+    // Sub Categories
+    Route::get('subcategories/paginate/{per_page?}/{search?}', 'SubCategoryController@paginate');
+    Route::resource('subcategories', 'SubCategoryController')->except(['edit', 'create']);
+
     // Brands
     Route::get('brands/paginate/{per_page?}/{search?}', 'BrandController@paginate');
     Route::resource('brands', 'BrandController')->except(['edit', 'create']);

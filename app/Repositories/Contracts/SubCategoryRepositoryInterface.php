@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface CategoryRepositoryInterface
+interface SubCategoryRepositoryInterface
 {
     public function index();
     public function paginate($per_page, $search);

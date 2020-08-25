@@ -9,6 +9,7 @@ use App\Repositories\Contracts\{
     ProfileRepositoryInterface,
     PermissionProfileRepositoryInterface,
     CategoryRepositoryInterface,
+    SubCategoryRepositoryInterface,
     BrandRepositoryInterface,
     ProductRepositoryInterface,
 };
@@ -19,6 +20,7 @@ use App\Repositories\{
     ProfileRepository,
     PermissionProfileRepository,
     CategoryRepository,
+    SubCategoryRepository,
     BrandRepository,
     ProductRepository,
 };
@@ -29,6 +31,7 @@ use App\Observers\{
     PermissionObserver,
     ProfileObserver,
     CategoryObserver,
+    SubCategoryObserver,
     BrandObserver,
     ProductObserver,
     ProductImageObserver,
@@ -40,6 +43,7 @@ use App\Models\{
     Permission,
     Profile,
     Category,
+    SubCategory,
     Brand,
     Product,
     Product_Images,
@@ -75,6 +79,10 @@ class AppServiceProvider extends ServiceProvider
             CategoryRepository::class,
         );
         $this->app->bind(
+            SubCategoryRepositoryInterface::class,
+            SubCategoryRepository::class,
+        );
+        $this->app->bind(
             BrandRepositoryInterface::class,
             BrandRepository::class,
         );
@@ -96,6 +104,7 @@ class AppServiceProvider extends ServiceProvider
         Permission::observe(PermissionObserver::class);
         Profile::observe(ProfileObserver::class);
         Category::observe(CategoryObserver::class);
+        SubCategory::observe(SubCategoryObserver::class);
         Brand::observe(BrandObserver::class);
         Product::observe(ProductObserver::class);
         Product_Images::observe(ProductImageObserver::class);
