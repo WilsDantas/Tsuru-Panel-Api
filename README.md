@@ -237,3 +237,71 @@ api/v1/brands/{identify} - DELETE
     identify                - Brand Identify
 
     return message " Brand successfully deleted "
+
+## LARAVEL API URLS PRODUCTS - ALL NEED AUTHENTICATION
+
+api/v1/products/paginate - GET
+
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
+
+    Return Products/Details/Images/SubCategory/Category/Brand With Paginate
+
+api/v1/products - GET
+
+    Return All Products/Details/Images/SubCategory/Category/Brand Without Paginate
+
+api/v1/products - POST
+
+    name                    - Required | Min: 3 | Max: 255
+    quantity                - Required
+    price                   - Required | regex:/^\d+(\.\d{1,2})?$/      Ex: 42.42
+
+    images                  - Required | image                          Array with images
+
+    brand                   - Required                                  Brand Identify
+    sub_category            - Required                                  Sub Category Identify
+
+    pet                     - Nullable | Min: 3 | Max: 255              Type of Pet (Dog, Cat, Birds)
+    size                    - Nullable | Min: 3 | Max: 255
+    age                     - Nullable
+    material                - Nullable | Min: 3 | Max: 255
+    dimension               - Nullable | Min: 3 | Max: 255
+    description             - Nullable | Min: 3 | Max: 255
+    weight                  - Nullable | Min: 3 | Max: 255
+
+    return message " Product successfully registered "
+
+api/v1/products/{identify} - GET
+
+    identify                - Product Identify
+
+    Return One Products/Details/Images/SubCategory/Category/Product
+
+api/v1/products/{identify} - PUT
+
+    name                    - Required | Min: 3 | Max: 255
+    quantity                - Required
+    price                   - Required | regex:/^\d+(\.\d{1,2})?$/      Ex: 42.42
+
+    images                  - Required | image                          Array with images
+
+    brand                   - Required                                  Brand Identify
+    sub_category            - Required                                  Sub Category Identify
+
+    pet                     - Nullable | Min: 3 | Max: 255              Type of Pet (Dog, Cat, Birds)
+    size                    - Nullable | Min: 3 | Max: 255
+    age                     - Nullable
+    material                - Nullable | Min: 3 | Max: 255
+    dimension               - Nullable | Min: 3 | Max: 255
+    description             - Nullable | Min: 3 | Max: 255
+    weight                  - Nullable | Min: 3 | Max: 255
+
+    return message " Product updated successfully "
+
+
+api/v1/products/{identify} - DELETE
+
+    identify                - Product Identify
+
+    return message " Product successfully deleted "

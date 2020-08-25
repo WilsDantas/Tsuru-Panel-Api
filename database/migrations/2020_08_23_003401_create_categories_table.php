@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('subcategories', function (Blueprint $table) {
+        Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->uuid('uuid');
