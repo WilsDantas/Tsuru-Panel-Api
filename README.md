@@ -57,7 +57,7 @@ api/v1/register - POST
     Tenant                  - Name Tenant | Required | Min: 3 | Max: 255
     name                    - User Name | Required | Min: 3 | Max: 255
     Email                   - User/Tenant Email | Required | Email | Min: 3 | Max: 255 | Unique: Users
-    password                - User Password | Password | Min: 6 | Max: 20
+    password                - User Password | Password | Min: 6 | Max: 50
     password_confirmation   - Confirm User Password
 
 api/v1/auth - GET
@@ -119,7 +119,7 @@ api/v1/permissions/{identify} - DELETE
 
 ## LARAVEL API URLS PROFILES - ALL NEED AUTHENTICATION
 
-api/v1/profiles/paginate - GET
+api/v1/profiles/paginate/{per_page}/{search} - GET
 
     per_page                - nullable | First Param
     search                  - nullable | Second Param
@@ -164,7 +164,7 @@ api/v1/profiles/AttachPermissions/{identify} - PUT
 
 ## LARAVEL API URLS CATEGORIES - ALL NEED AUTHENTICATION
 
-api/v1/categories/paginate - GET
+api/v1/categories/paginate/{per_page}/{search} - GET
 
     per_page                - nullable | First Param
     search                  - nullable | Second Param
@@ -201,7 +201,7 @@ api/v1/categories/{identify} - DELETE
 
 ## LARAVEL API URLS SUB CATEGORIES - ALL NEED AUTHENTICATION
 
-api/v1/subcategories/paginate - GET
+api/v1/subcategories/paginate/{per_page}/{search} - GET
 
     per_page                - nullable | First Param
     search                  - nullable | Second Param
@@ -240,7 +240,7 @@ api/v1/subcategories/{identify} - DELETE
 
 ## LARAVEL API URLS BRANDS - ALL NEED AUTHENTICATION
 
-api/v1/brands/paginate - GET
+api/v1/brands/paginate/{per_page}/{search} - GET
 
     per_page                - nullable | First Param
     search                  - nullable | Second Param
@@ -279,7 +279,7 @@ api/v1/brands/{identify} - DELETE
 
 ## LARAVEL API URLS PRODUCTS - ALL NEED AUTHENTICATION
 
-api/v1/products/paginate - GET
+api/v1/products/paginate/{per_page}/{search} - GET
 
     per_page                - nullable | First Param
     search                  - nullable | Second Param
@@ -344,3 +344,52 @@ api/v1/products/{identify} - DELETE
     identify                - Product Identify
 
     return message " Product successfully deleted "
+
+
+## LARAVEL API URLS USER - ALL NEED AUTHENTICATION
+
+api/v1/user/paginate/{per_page}/{search} - GET
+
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
+
+    Return User/Profile/Tenant With Paginate
+
+api/v1/user - GET
+
+    Return All User/Profile/Tenant Without Paginate
+
+api/v1/user - POST
+
+    name                    - Required | Min: 3 | Max: 255
+    profile                 - Required                                      Profile Identify
+    salary                  - Required | regex:/^\d+(\.\d{1,2})?$/          Ex: 42.42
+    phone                   - Required
+    email                   - Required | Unique:Users
+    password                - User Password | Password | Min: 6 | Max: 50
+    password_confirmation   - Confirm User Password
+
+    return message " User successfully registered "
+
+api/v1/user/{identify} - GET
+
+    identify                - Product Identify
+
+    Return One User/Profile/Tenant
+
+api/v1/user/{identify} - PUT
+
+    name                    - Required | Min: 3 | Max: 255
+    profile                 - Required                                      Profile Identify
+    salary                  - Required | regex:/^\d+(\.\d{1,2})?$/          Ex: 42.42
+    phone                   - Required
+    active                  - (Y/N)
+
+    return message " User updated successfully "
+
+
+api/v1/user/{identify} - DELETE
+
+    identify                - User Identify
+
+    return message " User successfully deleted "

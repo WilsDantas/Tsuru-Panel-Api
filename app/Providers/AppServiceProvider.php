@@ -12,6 +12,7 @@ use App\Repositories\Contracts\{
     SubCategoryRepositoryInterface,
     BrandRepositoryInterface,
     ProductRepositoryInterface,
+    UserRepositoryInterface,
 };
 
 use App\Repositories\{
@@ -23,6 +24,7 @@ use App\Repositories\{
     SubCategoryRepository,
     BrandRepository,
     ProductRepository,
+    UserRepository,
 };
 
 use App\Observers\{
@@ -89,6 +91,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ProductRepositoryInterface::class,
             ProductRepository::class,
+        );
+        $this->app->bind(
+            UserRepositoryInterface::class,
+            UserRepository::class,
         );
     }
 

@@ -52,4 +52,10 @@ Route::group([
     // Products
     Route::get('products/paginate/{per_page?}/{search?}', 'ProductController@paginate');
     Route::resource('products', 'ProductController')->except(['edit', 'create']);
+
+    // Users
+    Route::get('users/paginate/{per_page?}/{search?}', 'UserController@paginate');
+    Route::resource('users', 'UserController')->except(['edit', 'create']);
+
+
 });
