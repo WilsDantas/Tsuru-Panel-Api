@@ -23,6 +23,10 @@ class AuthService{
         return $this->repository->auth($request);
     }
 
+    public function authUpdate($request){
+        return $this->repository->authUpdate($request);
+    }
+
     public function me()
     {
         return $this->repository->me();

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Services\AuthService;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\AuthUpdateRequest;
 use App\Http\Resources\UserResource;
 
 class authController extends Controller
@@ -36,6 +37,13 @@ class authController extends Controller
             'user' => new UserResource($auth['user'])
         ];
         return response()->json($data); 
+    }
+
+    public function authUpdate(AuthUpdateRequest $request){
+        if(!$user = $this->authService->authUpdate($request)){
+            return response()->json(['message' => 'User Not Found'], 404); 
+        }
+        return new UserResource($user); 
     }
 
     public function me()

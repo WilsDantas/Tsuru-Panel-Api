@@ -6,6 +6,7 @@ use App\Repositories\Contracts\AuthRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Tenant;
+use Illuminate\Support\Facades\Storage;
 
 class AuthRepository implements AuthRepositoryInterface
 {
@@ -48,6 +49,28 @@ class AuthRepository implements AuthRepositoryInterface
                 ];
             }
         }
+    }
+
+    public function authUpdate($request)
+    {
+        $user = Auth()->user();
+        $data['phone'] = $request->phone;
+        if($request->password){
+            if(Hash::check($request->password, $user->password)){
+                $data['password'] = Hash::make($request->new_password);
+            }
+        }
+
+        if($request->image){
+            if(Storage::exists($user->image)) {
+                Storage::delete($user->image);
+            }
+            if($request->image->isValid()){
+                $data['image'] = $request->image->store("users");
+            }
+        }
+        $user->update($data);
+        return $user;
     }
 
     public function me()

@@ -32,6 +32,7 @@ class UserRepository implements UserRepositoryInterface
             return false;
         }
         $data = $request->all();
+        $data['password'] = Hash::make($request->password);
         $data['tenant_id'] = Auth()->user()->tenant_id;
         $data['profile_id'] = $profile->id;
         return $this->repository->create($data); 

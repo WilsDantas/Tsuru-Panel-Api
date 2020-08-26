@@ -78,18 +78,28 @@ class ProductRepository implements ProductRepositoryInterface
 
             $data['sub_category_id'] = $subCategory->id;
             $data['brand_id'] = $brand->id;
-
-            $product->product_images()->delete();
+            if(count($product->product_images) > 0){
+                foreach($product->product_images as $image){
+                    if(Storage::exists($image->image)) {
+                        Storage::delete($image->image);
+                    }
+                }
+                $product->product_images()->delete();
+            }
+            
             $product->detail->update($request->all());
 
             $product = $product->update($data); 
-            
-            foreach($request->images as $image){
-                if($image->isValid()){
-                    $data['image'] = $image->store("products");
-                }
-                $product->product_images()->create($data);
-            };
+
+            if($request->images){
+                foreach($request->images as $image){
+                    if($image->isValid()){
+                        $data['image'] = $image->store("products");
+                    }
+                    $product->product_images()->create($data);
+                };
+            }
+
             return $product;
         }
     }
@@ -98,6 +108,14 @@ class ProductRepository implements ProductRepositoryInterface
     {
         
         if($product = $this->repository->where('uuid', $uuid)->first()){
+            if(count($product->product_images) > 0){
+                foreach($product->product_images as $image){
+                    if(Storage::exists($image->image)) {
+                        Storage::delete($image->image);
+                    }
+                }
+                $product->product_images()->delete();
+            }
             return $product->delete();
         }
     }
