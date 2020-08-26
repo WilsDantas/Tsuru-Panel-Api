@@ -60,7 +60,7 @@ api/v1/register - POST
     password                - User Password | Password | Min: 6 | Max: 20
     password_confirmation   - Confirm User Password
 
-api/v1/auth/update - put
+api/v1/auth/update - PUT
 
     new_password            - nullable | string | min:8', 'max: 20'
     confirm_new_password    - nullable | required_with:new_password | same:new_password
@@ -403,3 +403,22 @@ api/v1/user/{identify} - DELETE
     identify                - User Identify
 
     return message " User successfully deleted "
+
+## LARAVEL API URLS CLIENT - ALL NEED AUTHENTICATION
+
+api/v1/client/paginate/{per_page}/{search} - GET
+
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
+
+    Return Client/Order/Product... With Paginate
+
+api/v1/client - GET
+
+    Return All Client/Order/Product... Without Paginate
+
+api/v1/client/{identify} - GET
+
+    identify                - Product Identify
+
+    Return One Client/Order/Product...

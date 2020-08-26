@@ -15,6 +15,10 @@ class product extends Model
         return $this->belongsTo(SubCategory::class);
     }
 
+    public function Orders(){
+        return $this->belongsToMany(Order::class)->withPivot('price', 'quantity');
+    }
+
     public function brand(){
         return $this->belongsTo(Brand::class);
     }

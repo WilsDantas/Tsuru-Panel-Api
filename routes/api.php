@@ -58,5 +58,13 @@ Route::group([
     Route::get('users/paginate/{per_page?}/{search?}', 'UserController@paginate');
     Route::resource('users', 'UserController')->except(['edit', 'create']);
 
+    // Clients
+    Route::get('clients/paginate/{per_page?}/{search?}', 'ClientController@paginate');
+    Route::resource('clients', 'ClientController')->only(['index', 'show']);
+
+    // Orders
+    Route::get('orders/paginate/{per_page?}/{search?}', 'OrderController@paginate');
+    Route::resource('orders', 'OrderController')->only(['index', 'show']);
+
 
 });
