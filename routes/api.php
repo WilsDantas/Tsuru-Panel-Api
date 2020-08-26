@@ -64,7 +64,7 @@ Route::group([
 
     // Orders
     Route::get('orders/paginate/{per_page?}/{search?}', 'OrderController@paginate');
-    Route::resource('orders', 'OrderController')->only(['index', 'show']);
+    Route::resource('orders', 'OrderController')->only(['index', 'show', 'update']);
 
 
 });

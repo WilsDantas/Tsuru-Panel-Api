@@ -422,3 +422,30 @@ api/v1/client/{identify} - GET
     identify                - Product Identify
 
     Return One Client/Order/Product...
+
+## LARAVEL API URLS ORDER - ALL NEED AUTHENTICATION
+
+api/v1/orders/paginate/{per_page}/{search} - GET
+
+    per_page                - nullable | First Param
+    search                  - nullable | Second Param
+
+    Return Order/Product... With Paginate
+
+api/v1/orders - GET
+
+    Return All Order/Product... Without Paginate
+
+api/v1/orders/{identify} - GET
+
+    identify                - Order Identify
+
+    Return One Order/Product...
+
+api/v1/orders/{identify} - PUT
+
+    identify                - Order Identify
+
+    status                  - open / delivery / done / rejected / canceled
+
+    return message " Order updated successfully "
