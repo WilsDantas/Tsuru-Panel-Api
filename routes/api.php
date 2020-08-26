@@ -25,7 +25,7 @@ Route::group([
 ], function (){
 
     //Auth
-    Route::post('authUpdate', 'AuthController@authUpdate');
+    Route::post('auth/update', 'AuthController@authUpdate');
     Route::get('me', 'AuthController@me');
     Route::get('logout', 'AuthController@logout');
 

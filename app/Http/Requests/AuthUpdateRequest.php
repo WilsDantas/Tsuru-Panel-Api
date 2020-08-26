@@ -28,7 +28,7 @@ class AuthUpdateRequest extends FormRequest
             'new_password'          => ['nullable', 'string', 'min:8', 'max: 20'],
             'confirm_new_password'  => ['nullable', 'required_with:new_password', 'same:new_password'],
             'phone'                 => ["required"],
-            'image'                 => ["required", "image"],
+            'image'                 => ["nullable", "image"],
             'password'              => ['nullable', function ($attribute, $value, $fail) {
                                         if (!\Hash::check($value, Auth::user()->password)) {
                                             return $fail(__('The current password is incorrect.'));

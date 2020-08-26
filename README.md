@@ -57,8 +57,18 @@ api/v1/register - POST
     Tenant                  - Name Tenant | Required | Min: 3 | Max: 255
     name                    - User Name | Required | Min: 3 | Max: 255
     Email                   - User/Tenant Email | Required | Email | Min: 3 | Max: 255 | Unique: Users
-    password                - User Password | Password | Min: 6 | Max: 50
+    password                - User Password | Password | Min: 6 | Max: 20
     password_confirmation   - Confirm User Password
+
+api/v1/auth/update - put
+
+    new_password            - nullable | string | min:8', 'max: 20'
+    confirm_new_password    - nullable | required_with:new_password | same:new_password
+    phone                   - required
+    image                   - nullable | image
+    password                - nullable | User Password for Confirm 
+
+    return User
 
 api/v1/auth - GET
 
