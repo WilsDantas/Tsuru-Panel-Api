@@ -37,6 +37,7 @@ class ProductRepository implements ProductRepositoryInterface
         if(!$subCategory = $this->subCategory->where('uuid', $request->sub_category)->first()){
             return false;
         }
+        
         if(!$brand = $this->brand->where('uuid', $request->brand)->first()){
             return false;
         }

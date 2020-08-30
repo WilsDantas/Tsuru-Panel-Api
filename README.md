@@ -358,18 +358,18 @@ api/v1/products/{identify} - DELETE
 
 ## LARAVEL API URLS USER - ALL NEED AUTHENTICATION
 
-api/v1/user/paginate/{per_page}/{search} - GET
+api/v1/users/paginate/{per_page}/{search} - GET
 
     per_page                - nullable | First Param
     search                  - nullable | Second Param
 
     Return User/Profile/Tenant With Paginate
 
-api/v1/user - GET
+api/v1/users - GET
 
     Return All User/Profile/Tenant Without Paginate
 
-api/v1/user - POST
+api/v1/users - POST
 
     name                    - Required | Min: 3 | Max: 255
     profile                 - Required                                      Profile Identify
@@ -381,13 +381,13 @@ api/v1/user - POST
 
     return message " User successfully registered "
 
-api/v1/user/{identify} - GET
+api/v1/users/{identify} - GET
 
     identify                - Product Identify
 
     Return One User/Profile/Tenant
 
-api/v1/user/{identify} - PUT
+api/v1/users/{identify} - PUT
 
     name                    - Required | Min: 3 | Max: 255
     profile                 - Required                                      Profile Identify
@@ -398,7 +398,7 @@ api/v1/user/{identify} - PUT
     return message " User updated successfully "
 
 
-api/v1/user/{identify} - DELETE
+api/v1/users/{identify} - DELETE
 
     identify                - User Identify
 

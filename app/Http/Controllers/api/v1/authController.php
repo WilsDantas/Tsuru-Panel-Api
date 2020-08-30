@@ -30,7 +30,7 @@ class authController extends Controller
     public function auth(AuthRequest $request)
     {
         if(!$auth = $this->authService->auth($request)){
-            return response()->json(['errors' => "Invalid data. try again"], 404); 
+            return response()->json(['errors' => ['invalid' => ["the given data was invalid. try again"]]], 422); 
         }
         $data = [
             'token' => $auth['token'],

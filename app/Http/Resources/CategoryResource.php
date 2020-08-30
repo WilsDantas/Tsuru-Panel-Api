@@ -11,6 +11,7 @@ class CategoryResource extends JsonResource
         return [
             'identify'      => $this->uuid,
             'name'          => $this->name,
+            'subcategories'   => count($this->subcategories),
         ];
     }
 }

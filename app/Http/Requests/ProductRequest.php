@@ -28,11 +28,11 @@ class ProductRequest extends FormRequest
             // Product
 
             'name'          => "required|string|min:3|max:255",
-            'quantity'      => "required",
+            'quantity'      => "required|integer",
             'price'         => "required|regex:/^\d+(\.\d{1,2})?$/",
 
             // Product Image
-            'images'        => 'required',
+            'images'        => 'required | image',
             'images.*'      => "image",
 
             // Relations Identify
@@ -44,7 +44,7 @@ class ProductRequest extends FormRequest
 
             'pet'           => "nullable|min:3|max:250",
             'size'          => "nullable|min:3|max:250",
-            'age'           => "nullable",
+            'age'           => "nullable|integer",
             'material'      => "nullable|min:3|max:250",
             'dimension'     => "nullable|min:3|max:250",
             'description'   => "nullable|min:3|max:250",

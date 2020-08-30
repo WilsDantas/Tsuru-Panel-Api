@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('v1/register', 'Api\v1\AuthController@register');
-Route::get('v1/auth', 'Api\v1\AuthController@auth');
+Route::post('v1/auth', 'Api\v1\AuthController@auth');
 
 Route::group([
     'prefix' => 'v1',
