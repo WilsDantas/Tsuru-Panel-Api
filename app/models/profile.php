@@ -21,7 +21,7 @@ class profile extends Model
 
     public function AttachPermissions($permissions){
         foreach($permissions as $permission){
-            $permissionId = Permission::where('uuid', $permission['identify'])->first();
+            $permissionId = Permission::where('uuid', $permission)->first();
             $this->permissions()->attach($permissionId->id);
         }
     }

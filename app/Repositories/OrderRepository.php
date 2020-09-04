@@ -22,8 +22,13 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function paginate($per_page, $search)
     {
-        return $this->repository->where('status', 'LIKE', "%{$search}%")->latest()->paginate($per_page);
+        return $this->repository->whereHas('client', function ($query) use ($search) {
+            $query->where('name', 'like', "%{$search}%");
+        })
+        ->orWhere('status', 'LIKE', "%{$search}%")
+        ->latest()->paginate($per_page);
     }
+    
     public function show($uuid)
     {
         if($order = $this->repository->where('uuid', $uuid)->first()){

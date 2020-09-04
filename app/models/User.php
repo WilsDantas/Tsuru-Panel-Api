@@ -43,4 +43,8 @@ class User extends Authenticatable
         return $this->belongsTo(Tenant::class);
     }
 
+    public function profile(){
+        return $this->belongsTo(Profile::class);
+    }
+
 }

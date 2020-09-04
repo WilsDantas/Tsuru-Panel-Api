@@ -32,7 +32,7 @@ class ProductRequest extends FormRequest
             'price'         => "required|regex:/^\d+(\.\d{1,2})?$/",
 
             // Product Image
-            'images'        => 'required | image',
+            'images'        => 'required',
             'images.*'      => "image",
 
             // Relations Identify

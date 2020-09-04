@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         $rules = [
             'name'          => "required|string|min:3|max:255",
             'profile'       => "required",
-            'salary'        => "required|regex:/^\d+(\.\d{1,2})?$/",
+            'salary'        => "required|regex:/^\d+(\.\d{1,2})?$/|max: 25",
             'phone'         => "required",
         ];
 

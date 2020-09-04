@@ -12,6 +12,7 @@ class SubCategoryResource extends JsonResource
             'identify'      => $this->uuid,
             'name'          => $this->name,
             'category'      => new CategoryResource($this->category),
+            'products'      => count($this->products)
         ];
     }
 }

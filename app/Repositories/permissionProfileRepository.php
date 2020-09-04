@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Repositories\Contracts\permissionProfileRepositoryInterface;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Profile;
 
 class PermissionProfileRepository implements permissionProfileRepositoryInterface
@@ -20,7 +19,6 @@ class PermissionProfileRepository implements permissionProfileRepositoryInterfac
         $profile = $this->repository->where('uuid', $uuid)->first();
 
         $profile->permissions()->detach();
-
         $profile->AttachPermissions($request->permissions);
 
         return $profile;

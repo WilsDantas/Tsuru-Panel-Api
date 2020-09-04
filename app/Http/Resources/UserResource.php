@@ -17,6 +17,7 @@ class UserResource extends JsonResource
             'salary'        => $this->salary ? $this->salary : '',
             'phone'         => $this->phone ? $this->phone : '',
             'tenant'        => new TenantResource($this->tenant),
+            'profile'       => new ProfileResource($this->profile),
         ];
     }
 }

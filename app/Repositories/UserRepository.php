@@ -51,7 +51,7 @@ class UserRepository implements UserRepositoryInterface
             if(!$profile = Profile::where('uuid', $request->profile)->first()){
                 return false;
             }
-            $data = $request->all();
+            $data = $request->only('phone', 'salary');
             $data['profile_id'] = $profile->id;
             return $user->update($data);
         }

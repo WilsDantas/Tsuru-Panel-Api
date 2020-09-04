@@ -66,6 +66,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        
+        $this->app->bind(
+            PermissionProfileRepositoryInterface::class,
+            PermissionProfileRepository::class,
+        );
         $this->app->bind(
             AuthRepositoryInterface::class,
             AuthRepository::class,
@@ -77,10 +82,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ProfileRepositoryInterface::class,
             ProfileRepository::class,
-        );
-        $this->app->bind(
-            PermissionProfileRepositoryInterface::class,
-            PermissionProfileRepository::class,
         );
         $this->app->bind(
             CategoryRepositoryInterface::class,

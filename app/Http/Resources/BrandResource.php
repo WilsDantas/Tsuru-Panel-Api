@@ -11,6 +11,7 @@ class BrandResource extends JsonResource
         return [
             'identify'      => $this->uuid,
             'name'          => $this->name,
+            'products'      => count($this->products)
         ];
     }
 }

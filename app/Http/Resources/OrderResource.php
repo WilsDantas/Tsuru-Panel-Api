@@ -14,8 +14,12 @@ class OrderResource extends JsonResource
             'total'         => $this->total,
             'comment'       => $this->comment,
             'status'        => $this->status,
+            'client'        => ['name' => $this->client->name,
+                                'email' => $this->client->email,
+                                'identify' => $this->client->uuid],
             'created_at'    => Carbon::parse($this->created_at)->format('d/m/Y'),
             'products'      => OrderProductResource::collection($this->products),
+            
         ];
     }
 }

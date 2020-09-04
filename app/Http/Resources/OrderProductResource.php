@@ -17,8 +17,6 @@ class OrderProductResource extends JsonResource
             'subCategory'   => new SubCategoryResource($this->SubCategory),
             'detail'        => new DetailResource($this->detail),
             'images'        => $this->product_images ? ProductImageResource::collection($this->product_images) : '',
-            'price'         => $this->pivot->price,
-            'quantity'      => $this->pivot->quantity,
             'pivot'         => new PivotOrderProductResource($this->pivot),
         ];
     }

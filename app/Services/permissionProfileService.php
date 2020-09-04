@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\Repositories\Contracts\permissionProfileRepositoryInterface;
+use App\Repositories\Contracts\PermissionProfileRepositoryInterface;
 
 class permissionProfileService{
 
     private $repository;
 
-    public function __construct(permissionProfileRepositoryInterface $repository)
+    public function __construct(PermissionProfileRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }

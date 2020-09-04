@@ -48,7 +48,6 @@ class SubCategoryRepository implements SubCategoryRepositoryInterface
         }
         $data = $request->all();
         $data['category_id'] = $category->id;
-
         if($category = $this->repository->where('uuid', $uuid)->first()){
             return $category->update($data);
         }
